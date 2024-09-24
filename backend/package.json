@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/Sarah-Gad/chefmemo_first_trial#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
+    "express-async-handler": "^1.2.0",
+    "joi": "^17.13.3",
     "mongoose": "^8.6.3"
   },
   "devDependencies": {
