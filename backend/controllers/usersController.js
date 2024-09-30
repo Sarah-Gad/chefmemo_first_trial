@@ -3,15 +3,17 @@ const bcrypt = require('bcryptjs');
 const path = require('path');
 const fs = require('fs');
 const { User, validateUpdateUser } = require('../models/User');
-const { cloudinaryUploadImage, cloudinaryRemoveImage } = require('../utils/cloudinary');
+const { cloudinaryUploadImage, cloudinaryRemoveImage, cloudinaryRemoveMultiImages } = require('../utils/cloudinary');
+const { Recipe } = require('../models/Recipes');
+const { Comment } = require('../models/Comment');
 
 module.exports.getAllUsersCtrl = asyncHandler(async (req, res) => {
-  const users = await User.find().select('-password').populate("recipes");
+  const users = await User.find().select('-password').populate('recipes');
   res.status(200).json(users);
 });
 
 module.exports.getUserProfileCtrl = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.params.id).select('-password').populate("recipes");
+  const user = await User.findById(req.params.id).select('-password').populate('recipes');
   if (!user) {
     return res.status(404).json({ message: 'User not found' });
   }
@@ -67,7 +69,14 @@ module.exports.deleteUserProfileCtrl = asyncHandler(async (req, res) => {
   if (!user) {
     return res.status(404).json({ message: 'User not found' });
   }
+  const recipes = await Recipe.find({ chef: user._id });
+  const publicIds = recipes?.map((recipe) => recipe.image.publicId);
+  if (publicIds?.length > 0) {
+    await cloudinaryRemoveMultiImages(publicIds);
+  }
   await cloudinaryRemoveImage(user.profilePhoto.publicId);
+  await Recipe.deleteMany({ chef: user._id });
+  await Comment.deleteMany({ user: user._id });
   await User.findByIdAndDelete(req.params.id);
   res.status(200).json({ message: 'Your profile has been deleted' });
 });
