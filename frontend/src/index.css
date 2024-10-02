@@ -1,64 +1,75 @@
 :root {
-    --main-color: #efefef;
-    --primary-color: #1d2d3d;
-    --secondary-color:#495e74 ;
-    --gray-color: #778697;
-    --dark-color: #292b2c;
-    --blue-color: #0275d8;
-    --green-color: #27ae60;
-    --green-sea-color: #16a085;
-    --pumpkin-color: #d35400;
-    --red-color: #d9534f;
-    --white-color: #fff;
-  }
+  --main-color: #FFF5F7;          /* Light pink background */
+  --primary-color: #D53F8C;       /* Deep pink for primary elements */
+  --secondary-color: #ED64A6;     /* Lighter pink for secondary elements */
+  --gray-color: #B83280;          /* Muted pink for less emphasis */
+  --dark-color: #702459;          /* Dark pink for contrast */
+  --accent-color: #9B2C2C;        /* Burgundy for accents */
+  --success-color: #38A169;       /* Keep green for success states */
+  --error-color: #E53E3E;         /* Bright red for errors */
+  --white-color: #fff;
+}
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lora', 'Merriweather', 'Georgia', serif;  /* Primary font for body text */
+}
 
-  body {
-    background-color: var(--main-color);
-    overflow-x: hidden;
-  }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;  /* Elegant serif for headings */
+}
 
-  a {
-    text-decoration: none;
-  }
+body {
+  background-color: var(--main-color);
+  overflow-x: hidden;
+  color: var(--dark-color);
+  line-height: 1.6;
+}
 
-  ul {
-    list-style: none;
-    padding: 0;
-  }
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
 
-  input:focus,
-  select:focus,
-  textarea:focus {
-    outline: none;
-  }
+a:hover {
+  color: var(--secondary-color);
+}
 
-  /* Some Global Classes For icons */
-  .bi-pencil-square {
-    color: var(--green-sea-color);
-    margin-right: 15px;
-  }
+ul {
+  list-style: none;
+  padding: 0;
+}
 
-  .bi-trash-fill {
-    color: var(--red-color);
-  }
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
 
-  /* Scrollbar Classes For Google Chrome */
-  html::-webkit-scrollbar {
-    width: 12px;
-  }
+/* Icon Classes */
+.bi-pencil-square {
+  color: var(--secondary-color);
+  margin-right: 15px;
+}
 
-  html::-webkit-scrollbar-track {
-    background-color: rgb(187, 179, 179);
-  }
+.bi-trash-fill {
+  color: var(--error-color);
+}
 
-  html::-webkit-scrollbar-thumb {
-    background-color: var(--dark-color);
-    border-radius: 15px;
-  }
+/* Scrollbar Styles */
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: var(--main-color);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+  border-radius: 15px;
+}
