@@ -1,28 +1,29 @@
 :root {
-  --main-color: #FFF5F7;          /* Light pink background */
-  --primary-color: #D53F8C;       /* Deep pink for primary elements */
-  --secondary-color: #ED64A6;     /* Lighter pink for secondary elements */
-  --gray-color: #B83280;          /* Muted pink for less emphasis */
-  --dark-color: #702459;          /* Dark pink for contrast */
-  --accent-color: #9B2C2C;        /* Burgundy for accents */
-  --success-color: #38A169;       /* Keep green for success states */
-  --error-color: #E53E3E;         /* Bright red for errors */
-  --white-color: #fff;
+  --main-color: #ECB3B2;          /* Light pink from the top row */
+  --primary-color: #E49795;       /* Medium pink from the second row */
+  --secondary-color: #DC7B79;     /* Darker pink from the third row */
+  --gray-color: #C49594;          /* Muted pink-gray from middle column */
+  --dark-color: #5C3130;          /* Deep pink-brown from bottom right */
+  --accent-color: #D65D5B;        /* Vibrant pink from third row */
+  --success-color: #E8CDCC;       /* Very light pink from top row */
+  --error-color: #983B39;         /* Dark pink from bottom row */
+  --white-color: #FFF8F8;
+  --recipe-bg-color: #FFF0F0;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Lora', 'Merriweather', 'Georgia', serif;  /* Primary font for body text */
+  font-family: 'Lora', 'Merriweather', 'Georgia', serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', 'Cormorant Garamond', serif;  /* Elegant serif for headings */
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
 }
 
 body {
-  background-color: var(--main-color);
+  background-color: var(--white-color);
   overflow-x: hidden;
   color: var(--dark-color);
   line-height: 1.6;
@@ -35,7 +36,7 @@ a {
 }
 
 a:hover {
-  color: var(--secondary-color);
+  color: var(--accent-color);
 }
 
 ul {
@@ -43,9 +44,7 @@ ul {
   padding: 0;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: var(--secondary-color);
 }
@@ -66,10 +65,10 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background-color: var(--main-color);
+  background-color: var(--white-color);
 }
 
 html::-webkit-scrollbar-thumb {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   border-radius: 15px;
 }
