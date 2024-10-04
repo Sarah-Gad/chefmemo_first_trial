@@ -131,11 +131,11 @@
 }
 
 @media (max-width: 720px) {
-    .post-item {
+    .recipe-item {
         padding: 10px;
     }
 
-    .post-item-image {
+    .recipe-item-image {
         object-fit: cover;
     }
 }
